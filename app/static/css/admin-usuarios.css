@@ -12,23 +12,23 @@ Convencion que servira para agregar los estilos (especie de norma):
   width: 100%;
 }
 
-.crear-usuario__title {
+.form__title {
     font-family: "Merriweather Sans", sans-serif;
     font-size: 3.7rem;
     font-weight: 800;
     color: var(--white);
     text-align: center;
-    margin-top: 5rem;
     margin-bottom: 1rem;
 }
 
-.form__agregar {
+.form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     max-width: 500px;
     margin: 0 auto;
+    margin-top: 5rem;
     padding: 20px;
     background-color: rgba(140, 72, 48, 0.5);
     box-shadow: 0 4px 8px rgba(13, 13, 13, 0.7);
@@ -55,65 +55,7 @@ Convencion que servira para agregar los estilos (especie de norma):
     font-weight: bold;
 }
 
-
-  .login__logo {
-    text-align: center;
-    width: 200px;
-    height: auto;
-    margin-bottom: 20px;
-  }
-  .login__logo img {
-    width: 100%;
-    height: 100%;
-  }
-  .login__info {
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 0 20px 20px 20px;
-  }
-  .login__info span {
-    font-size: 5rem;
-    font-weight: bold;
-    color: #AD000F;
-  }
-  .login h4 {
-    font-size: 2.7rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 0 20px 20px 20px;
-  }
-  .login__form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
-  }
-  .login__form .form__label {
-    display: block;
-    padding-bottom: 20px;
-  }
-  .login__form .form__label span {
-    display: block;
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
-  .login__form .form__input {
-    width: 100%;
-    height: 30px;
-    padding: 0 10px;
-    border: none;
-    box-shadow: 0 4px 8px rgba(13, 13, 13, 0.7);
-  }
-  .login__form .form__input::placeholder {
-    font-weight: bold;
-  }
-  .login__form .login__separator {
-    margin: 5px auto;
-    width: 250px;
-    border-bottom: 1px solid #F2EDDC;
-  }
-  .login__form .button--brown {
+.button--brown--info {
     width: 150px;
     height: 30px;
     padding: 5px;
@@ -126,18 +68,9 @@ Convencion que servira para agregar los estilos (especie de norma):
     box-shadow: 0 4px 8px rgba(13, 13, 13, 0.7);
     cursor: pointer;
   }
-  .login__form .button--brown:hover {
+.button--brown--info:hover {
     color: #8C4830;
     background-color: #F2EDDC;
     border: 0;
     box-shadow: 0 4px 8px rgba(13, 13, 13, 0.7);
-  }
-  .logo__alfonso {
-    margin-top: 20px;
-    width: 200px;
-    height: auto;
-  }
-  .logo__alfonso img {
-    width: 100%;
-    height: 100%;
   }

@@ -4,9 +4,9 @@
 {% endblock %}
 {% block content %}
 	<main class="crear-usuario">
-		<h2 class=crear-usuario__title>Agregar Usuario</h2>
-		<div class="form__agregar">
+		<div class="form__agregar form">
 			<form action="/api/v1/admin/crear/usuario" method="POST">
+				<h2 class="form__title">Agregar Usuario</h2>
 				<label class="form__label" for="nombre">
 					<span>Ingrese el nombre del empleado:</span>
 					<input class="form__label" type="text" placeholder="Ingrese el nombre del empleado" name="nombre" required>
@@ -26,15 +26,15 @@
 					</select>
 				</label>
 				<div class="button">
-					<button class="button--brown--form" type="submit">Agregar usuario</button>
+					<button class="button--brown--info" type="submit">Agregar usuario</button>
 				</div>
 			</form>
 		</div>
 
 		{% if marcador %}
 
-			<div class="form__administrar">
-
+			<div class="form__administrar form">
+				<h2 class="form__title">administrar Usuario</h2>
 				<form action="/api/v1/admin/administrar/usuario" method="POST" autocomplete="off">
 					<label class="form__label" for="departamento">
 						<span>Seleccione el departamento:</span>
@@ -54,8 +54,8 @@
 						</select>
 					</label>
 					
-					<button class="button--brown" type="submit" value="eliminar" name = "action"> ELIMINAR usuario</button>
-					<button class="button--brown" type="submit" value="editar" name = "action"> MODIFICAR usuario</button>
+					<button class="button--brown--info" type="submit" value="eliminar" name = "action"> ELIMINAR usuario</button>
+					<button class="button--brown--info" type="submit" value="editar" name = "action"> MODIFICAR usuario</button>
 				</form>
 			</div>
 		{% else %}
