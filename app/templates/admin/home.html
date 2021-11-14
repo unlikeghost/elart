@@ -1,0 +1,115 @@
+{%extends "admin/layout.html" %}
+{% block styles %}
+	<link rel="stylesheet" href="../../static/css/admin-home.css">
+{% endblock %}
+{% block content %}
+	<main class="home-wrapper">
+		<h1 class="home__title">OverView - l’chef</h1>
+
+		<div class="home">
+		<section class="home__section">	
+			<div class="profile-main">		
+				<div class="profile-main__foto">
+					<img src="../../static/assets/img/avatar1.png" alt="avatar2">
+					<span> {{nombre}} </span>
+					<span>{{tipo}}</span>
+				</div>
+			</div>
+		</section>
+		
+		{% if marcador %}
+			<section class="home__section">
+				<div class="estrellas">
+					<h3 class="estrellas__title">Promedio general de insignias</h3>
+			
+					<div class="estrellas__departamento">
+			
+						<p class="estrellas__departamento__title">Por departamento</p>
+			
+						<div class="estrellas__wrapper"> 
+							{% for estrella in range(estrellasdepartamento) %}
+								<i class="material-icons">stars </i>
+							{% endfor %}
+						</div>
+					</div>
+					
+					<div class="estrellas__usuario">
+				
+						<p class="estrellas__departamento__title">Por usuario</p>
+				
+						<div class="estrellas__wrapper"> 
+							{% for estrella in range(estrellasempleados) %}
+								<i class="material-icons">stars </i>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+
+				<div class="graphic">
+					<h3 class="graphic.de__title">Promedio general de comentarios:</h3>
+					<div class="graphic__main">
+						<canvas id=chart  width="500" height="500" ></canvas>
+						<script>
+							let values = {{ values | safe }}
+							let labels = {{ labels | safe }}
+							let colors = {{ colors | safe }}
+
+							chart = new Chart(document.getElementById("chart"), {
+								type: 'doughnut',
+								data: {
+								labels: labels,
+								datasets: [{
+									backgroundColor: colors,
+									data: values,
+									hoverOffset: 4
+								}]
+								},
+								options: {
+								title: {
+									display: false,
+								},
+								legend: {
+									labels: {
+									/* here one can adjust the legend's labels, if required */
+									// generateLabels: function(chart) {}
+									}
+								}
+								}
+							});
+
+							console.log(values);
+						</script>
+					</div>
+				</div>
+			</section>
+
+			<section class="home__section">
+				<div class="department-eval">
+					<h4 class="department-eval__title">Ultimas evaluaciones registradas</h4>
+
+					<div class="department-eval__main">
+
+							{% for comentario in comentarios %}
+							{% set tipo = tipoComentario	[loop.index-1]%}
+								<div class="department-eval__main__card">	
+									<i class="material-icons" id="{{tipo}}">{{tipo}} </i>	
+									<p class="department-eval__main__text"> {{comentario}}</p>
+								</div>
+							{% endfor %}
+					</div>
+
+					<div class="button--brown--info">
+						<a href="/auth/admin/reportes">Más información </a>
+					</div>
+				</div>
+			</section>
+		{% else %}
+
+			{% include "admin/vacio.html" %}
+			
+		{% endif %}
+
+		</div>
+	</main>
+
+{% endblock %}

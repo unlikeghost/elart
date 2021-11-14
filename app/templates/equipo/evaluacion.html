@@ -1,0 +1,74 @@
+{% extends "equipo/layout.html"%}
+{% block styles %}
+	<link rel="stylesheet" href="../../static/css/evaluacion.css">
+{% endblock %}
+{% block content %}
+<main class="evaluacion">
+	<h2 class="evaluacion__title">crear una evaluación</h2>
+	
+	<div class="evaluacion__form">
+		
+		<form action="/api/v1/equipo/evaluacion" method="POST" autocomplete="off">
+		
+			<label class="form__label" for="departamento">
+				<span>Seleccione Departamento:</span>
+				<select class="form__input" name="departamento">
+					{% for departamento in departamentos%}
+						<option value="{{departamento}}">{{ departamento }}</option>
+					{% endfor %}
+				</select>
+			</label>
+
+			<label class="form__label" for="nombre">
+				<span>Seleccione al empleado:</span>
+				<select name="nombre">
+					{% for nombre in nombres %}
+						<option value="{{nombre}}">{{ nombre }}</option>
+					{% endfor %}
+				</select>
+			</label>
+			
+			
+			<div class="form__rate--dep">
+				<p>Evaluación general al departamento del empleado:</p>
+				<span></span>
+				<input class= "form__rate--dep__radio_input" id="radio1--dep" type="radio" name="rate--dep" value="1">
+				<label class= "form__rate--dep__radio_label" for="radio1--dep">★</label>
+				<input class= "form__rate--dep__radio_input" id="radio2--dep" type="radio" name="rate--dep" value="2">
+				<label class= "form__rate--dep__radio_label" for="--dep">★</label>
+				<input class= "form__rate--dep__radio_input" id="radio3--dep" type="radio" name="rate--dep" value="3">
+				<label class= "form__rate--dep__radio_label" for="radio3--dep">★</label>
+				<input class= "form__rate--dep__radio_input" id="radio4--dep" type="radio" name="rate--dep" value="4">
+				<label class= "form__rate--dep__radio_label" for="radio4--dep">★</label>
+				<input class= "form__rate--dep__radio_input" id="radio5--dep" type="radio" name="rate--dep" value="5">
+				<label class= "form__rate--dep__radio_label" for="radio5--dep">★</label>
+			</div>
+
+			<div class="form__rate--empleado">
+				<p>Evaluación al desempeño del empleado:</p>
+				<span></span>
+				<input class= "form__rate--empleado__radio_input" id="radio1--empleado" type="radio" name="rate--empleado" value="5">
+				<label class= "form__rate--empleado__radio_label" for="radio1--empleado">★</label>
+				<input class= "form__rate--empleado__radio_input" id="radio2--empleado" type="radio" name="rate--empleado" value="4">
+				<label class= "form__rate--empleado__radio_label" for="radio2--empleado">★</label>
+				<input class= "form__rate--empleado__radio_input" id="radio3--empleado" type="radio" name="rate--empleado" value="3">
+				<label class= "form__rate--empleado__radio_label" for="radio3--empleado">★</label>
+				<input class= "form__rate--empleado__radio_input" id="radio4--empleado" type="radio" name="rate--empleado" value="2">
+				<label class= "form__rate--empleado__radio_label" for="radio4--empleado">★</label>
+				<input class= "form__rate--empleado__radio_input" id="radio5--empleado" type="radio" name="rate--empleado" value="1">
+				<label class= "form__rate--empleado__radio_label" for="radio5--empleado">★</label>
+			</div>
+
+			<label class="form__label" for="comentario">
+				<span>Agregue un comentario final: </span>
+				<input type="textarea"
+					placeholder="Agregue un comentario, max 30 palabras..."
+					name="comentario" required>
+			</label>
+			<div class="button">
+				<button class="button--brown--form" type="submit">Enviar Evaluacion</button>
+			</div>
+		</form>
+	</div>
+</main>
+{% endblock %}

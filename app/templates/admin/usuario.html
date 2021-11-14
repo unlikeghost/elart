@@ -1,0 +1,68 @@
+{% extends "admin/layout.html" %}
+{% block styles %}
+	<link rel="stylesheet" href="../../static/css/admin-usuarios.css">
+{% endblock %}
+{% block content %}
+	<main class="crear-usuario">
+		<h2 class=crear-usuario__title>Agregar Usuario</h2>
+		<div class="form__agregar">
+			<form action="/api/v1/admin/crear/usuario" method="POST">
+				<label class="form__label" for="nombre">
+					<span>Ingrese el nombre del empleado:</span>
+					<input class="form__label" type="text" placeholder="Ingrese el nombre del empleado" name="nombre" required>
+				</label>
+
+				<label class="form__label" for="correo">
+					<span>Ingrese su correo:</span>
+					<input class="form__label" type="email" placeholder="Ingrese el correo" name="email" required>
+				</label>
+
+				<label class="form__label" for="departamento">
+					<span>ingrese el departamento:</span>
+					<select name="departamento">
+						{% for departamento in departamentos%}
+							<option value="{{departamento}}">{{ departamento }}</option>
+						{% endfor %}
+					</select>
+				</label>
+				<div class="button">
+					<button class="button--brown--form" type="submit">Agregar usuario</button>
+				</div>
+			</form>
+		</div>
+
+		{% if marcador %}
+
+			<div class="form__administrar">
+
+				<form action="/api/v1/admin/administrar/usuario" method="POST" autocomplete="off">
+					<label class="form__label" for="departamento">
+						<span>Seleccione el departamento:</span>
+						<select name="departamento">
+							{% for departamento in departamentos%}
+								<option value="{{departamento}}">{{ departamento }}</option>
+							{% endfor %}
+						</select>
+					</label>
+
+					<label class="form__label" for="name">
+						<span>Seleccione al empleado:</span>
+						<select name="nombre">
+							{% for nombre in nombres %}
+								<option value="{{nombre}}">{{ nombre }}</option>
+							{% endfor %}
+						</select>
+					</label>
+					
+					<button class="button--brown" type="submit" value="eliminar" name = "action"> ELIMINAR usuario</button>
+					<button class="button--brown" type="submit" value="editar" name = "action"> MODIFICAR usuario</button>
+				</form>
+			</div>
+		{% else %}
+
+			{%include "admin/vacio.html"%}
+
+		{% endif %}
+
+	</main>
+{% endblock %}

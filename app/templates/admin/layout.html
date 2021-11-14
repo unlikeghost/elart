@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="autor" content="Jesus Alan Hernandez Galvan (Unlikeghost)">
+	<meta name="autor" content="Luis Fernández (lfer9980)">
+	<meta name="autor" content="Leonel Valdez (leo1345)">
+	<meta name="description" content="Proyecto de evaluaciones internas con AI para Alfonso Marina">
+	<meta property="og:title" content="Elart: evaluando el arte by Alfonso Marina">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="https://i.postimg.cc/dV37vjLh/logo-1-2x.png">
+	<meta property="og:description" content="Proyecto de evaluaciones internas con AI para Alfonso Marina">
+	<link rel="icon" type="icono elart" href="../../static/assets/img/logo-2@2x.png">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="../../static/css/sidebar.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+	{% block styles %}
+
+	{% endblock %}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<title>elart | {{titulo}} </title>
+	</head>
+
+
+<body>
+
+	
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+			{% for category, message in messages %}
+				<script>
+					swal({
+						title: "{{category}}",
+						text: "{{message}}",
+						icon: '{{category}}',
+
+					});
+				</script>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+
+	
+	<aside class="sidebar">
+		<img class="sidebar__logo" src="../../static/assets/img/logo-1-white@2x.png" alt="Logo elarts">
+	
+		<p class="sidebar__username">Hola! {{nombre}} </p>
+	
+		<nav class="sidebar__nav">
+	
+			<ul class="sidebar__nav__data">
+	
+				<li class="sidebar__item">
+				
+					<a href="/auth/admin/home">
+				
+						<i class="material-icons">accessibility</i> 
+						Vista General 
+					</a>
+				</li>
+	
+				<li class="sidebar__item">
+					<a href="/auth/admin/reportes">
+						<i class="material-icons">device_hub</i>
+						Reportes
+					</a>
+				</li>
+		
+				<li class="sidebar__item"> 
+				
+					<a href="/auth/admin/usuario">
+				
+						<i class="material-icons">assignment_turned_in</i> 
+						Editar usuarios 
+					</a>
+				</li>
+		
+				<li class="sidebar__item"> 
+			
+					<a href="/auth/admin/departamentos">
+						<i class="material-icons">remove_red_eye</i>
+						Ver departamentos
+					</a>
+				</li>
+			</ul>
+		</nav>
+	
+		<div class="button--brown"> 
+			<a href="/auth/admin/logout">Cerrar sesión</a>
+		</div>
+	
+	</aside>
+
+	{% block content %}
+
+	{% endblock %}
+
+</body>
+
+</html>

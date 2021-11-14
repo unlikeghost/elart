@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="login__wrapper"> 
+		<div class="login" >
+			<div class="login__logo" >
+				<img src="../static/assets/img/logo-1-white@2x.png" alt="Logo de elart">
+			</div>
+			<div class="login__info">
+				<p>Te damos la bienvenida a: </p>
+				<span>e-lart</span>
+				<p>El lugar donde evaluamos tu desempeño de forma efectiva.</p>
+			</div>
+	
+			<form class="login__form" action="/api/v1/login" method="POST" autocomplete="off">
+			
+				<label class="form__label" for="usuario">
+					<input class="form__input" type="text" placeholder="Usuario" name="usuario" oninput="handleValueChange()" required>
+				</label>
+				
+				<label class="form__label" for="contraseña">
+					<input class="form__input" type="password" placeholder="Contraseña" name="password" required>
+				</label>
+	
+				<button class="button--brown" type="submit">Ingresar</button>
+				
+				<div class="login__separator"></div>
+	
+				<button class="button--brown" type="button" onclick="location.href = '/registro'">Registrar una cuenta</button>
+	
+			</form>
+			<div class="logo__alfonso" >
+				<img src="../static/assets/img/1-Alfonso.png" alt="Logo de Alfonso Marina">
+			</div>
+		</div>
+	</div>
+{% endblock %}

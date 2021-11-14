@@ -1,0 +1,118 @@
+{% extends "equipo/layout.html"%}
+{% block styles %}
+	<link rel="stylesheet" href="../../static/css/equipo-home.css">
+{% endblock %}
+{% block content %}
+<main class="home-wrapper">
+	<h1 class="home__title">OverView - l’partenaire</h1>
+
+	<div class="home">
+		<section class="home__section">
+			<div class="profile-main">
+				<div class="profile-main__foto">
+					<img src="../../static/assets/img/avatar1.png" alt="">
+					<span> {{nombre}} </span>
+					<span>{{departamento}}</span>
+				</div>	
+				<div class="profile-main__nivel">
+						<i class="material-icons">check_circle_outline</i>
+						<p><span>{{insignia}}</span></p>
+						<p>rango</p>
+					<div class="profile-main__estrella">
+						<i class="material-icons">stars</i>
+						<p>
+							<span>{{promedioEstrellas}}</span>
+							<span> estrellas</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+		{% if marcador %}
+			<section class="home__section">
+				<div class="profile-points">
+					<div class="profile-points__header">
+						<div class="profile-point__header__left">
+							<h4 class="profile-points__title"> Su marcador </h4>
+							<div class="profile__header__points">
+								<i class="material-icons">accessibility </i>
+								<span>{{puntos}}</span>
+							</div>
+						</div>
+						
+						<div class="profile-point__header__right">
+							<canvas id=chart  width="500" height="500" ></canvas>
+							<script>
+								let values = {{ values | safe }}
+								let labels = {{ labels | safe }}
+								let colors = {{ colors | safe }}
+
+								chart = new Chart(document.getElementById("chart"), {
+									type: 'doughnut',
+									data: {
+									labels: labels,
+									datasets: [{
+										backgroundColor: colors,
+										data: values,
+										hoverOffset: 4
+									}]
+									},
+									options: {
+									title: {
+										display: false,
+									},
+									legend: {
+										labels: {
+										/* here one can adjust the legend's labels, if required */
+										// generateLabels: function(chart) {}
+										}
+									}
+									}
+								});
+
+							</script>
+						</div>
+					</div>
+	
+					<div class="profile-points__main">
+						<h4>Sus ultimas Evaluaciones: </h4>
+	
+						{% for tipo in tipoComentario %}
+						{% set comentario = comentarios[loop.index-1]%}
+						<div class="profile-points__main__card">
+							<i class="material-icons" id="{{tipo}}" > {{tipo}} </i>
+							<p class="department-eval__main__text"> {{comentario}}</p>
+						</div>
+						{% endfor %}
+					</div>
+					<div class="button--brown--eva"> <a href="">Realizar una evaluación</a></div>
+				</div>
+			</section>
+	
+			{% else %}
+			{% include "equipo/vacio.html" %}
+			{% endif %}
+	
+			<section class="home__section">
+				<div class="team-overview">
+					<h1 class="team-overview__title">Miembros activos:</h1>
+					<h2 class="team-overview__subtitle">{{miembros | length }} miembros</h2>
+					<div class="team-overview__main">
+	
+						{%for nombre in miembros %}
+							<article class="team-overview__main__card">
+								<div class="card">
+									<img src="../../static/assets/img/avatar2.png" alt="">
+									<span class="card__title">
+										{{nombre}}
+									</span>
+							</article>
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+	</div>
+</main>
+
+{% endblock %}

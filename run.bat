@@ -1,0 +1,1 @@
+set FLASK_APP=entrypoint.py&&set FLASK_ENV=development&&flask run

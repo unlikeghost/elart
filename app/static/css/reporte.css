@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&family=Merriweather+Sans:wght@400;500;700&display=swap");
+/* fuentes principales */
+:root {
+--fuente1: 'Merriweather', sans-serif;
+--fuente2: 'Lato', sans-serif;
+
+
+--white: #FFF;
+--gray200: #E2E2E2;
+--gray400: #545454;
+--gray600: #141414;
+--black: #0D0D0D;
+
+--graymain: #8A99A6;
+--graysecond: #C1CED9;
+--brownlight: #F2EDDC;
+--brown: #BF895A;
+--browndark: #8C4830;
+
+--red600: #80000B;
+--red500: #AD000F;
+--red400: #E60014;
+--red300: #E64A57;
+--red200: #E6737D;
+
+--green600: #00801F;
+--green500: #00A327;
+--green400: #00BB2D;
+--green300: #3CBB5A;
+--green200: #5EBB74;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+html {
+    font-size: 62.5%;
+    font-family: "Lato", sans-serif;
+    scroll-behavior: smooth;
+    background-color: #8C4830;
+    color: #FFF;
+  }
+  
+body {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+body::after {
+    content: "";
+    background: url("../assets/img/fondo_elart.jpg");
+    background-position: center;
+    opacity: 0.75;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.reportes__title {
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 3.7rem;
+    font-weight: 800;
+    color: var(--white);
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+}
+
+.reportes {
+    display: block;
+    width: 100%
+}
+
+.reporte__resultados__card {
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 200px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: rgba(191, 137, 90, .60);
+    box-shadow: 0 4px 8px rgba(13, 13, 13, 0.7);
+}
+
+.profile-main__data {
+    width: 100%;
+    margin-left: 20px;
+}
+.profile-main__data h3 {
+    font-size: 2.8rem;
+    margin-bottom: 5px;
+}
+.profile-main__data span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.profile-main__data__estrellas span:nth-of-type(1) {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+.profile-main__data__estrellas i {
+    margin-top: 10px;
+    font-size: 4rem;
+    color: #F7FC00;
+}
+
+.form__label {
+    display: block;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.form__label span {
+    font-size: 2.1rem;
+    font-weight: 700;
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.form__input {
+    display: block;
+    width: 100%;
+    height: 35px;
+    margin-bottom: 20px;
+    font-size: 2.1rem;
+}
+select {
+    width: 100%;
+    height: 35px;
+    font-size: 2.1rem;      
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.home__section--empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    background-color: rgba(191, 137, 90, .60);
+    box-shadow: 0 4px 8px rgba(13, 13, 13, 0.7);
+    padding: 20px;
+}
+
+.home__section--empty h4 {
+    font-size: 2.4rem;
+    height: auto;
+}
+
+.home__section--empty img {
+    width: 200px;
+    height: auto;
+}
+
+.button--brown--form {
+    width: 150px;
+    height: 30px;
+    padding: 5px;;
+    background-color: #8C4830;
+    border: 0;
+    box-shadow: 0 4px 8px rgba(13, 13, 13, 0.7);
+    cursor: pointer;
+  }
+.button--brown--form {
+    font-size: 1.6rem;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    color: #FFF;
+  }
+.button--brown--form:hover {
+    background-color: #F2EDDC;
+    border: 0;
+    box-shadow: 0 4px 8px rgba(13, 13, 13, 0.7);
+  }
+.button--brown--form:hover {
+    color: #8C4830;
+  }

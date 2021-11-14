@@ -1,0 +1,35 @@
+{%extends "layout.html" %}
+{% block content %}
+	<div class="login__wrapper">
+
+		<div class="login">
+			<div class="login__logo" >
+				<img src="../static/assets/img/logo-1-white@2x.png" alt="Logo de elart">
+			</div>
+			
+			<h4>Agregar administrador</h4>
+			
+			<form class="login__form" action="/api/v1/registroadmin" method="POST" autocomplete="off">
+			
+				<label class="form__label" for="nombre"><span>Nombre:</span>
+					<input class="form__input" type="text" placeholder="ingrese su nombre" name="nombre" required>
+				</label>
+				
+				<label class="form__label" for="correo"><span>Correo electronico:</span>
+					<input class="form__input" type="text" placeholder="ingrese un correo electronico" name="email" required>
+				</label>
+				
+				<label class="form__label" for="contraseña"><span>Contraseña:</span>
+					<input class="form__input" type="password" placeholder="Ingrese una contraseña" name="password" required>
+				</label>
+				
+				<button class="button--brown" type="submit">Guardar</button>
+			
+			</form>	
+			<div class="logo__alfonso" >
+				<img src="../static/assets/img/1-Alfonso.png" alt="Logo de Alfonso Marina">
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "admin/layout.html"%}
+{% block content %}
+	<main class="form">
+		<h2 class="form__title">Editar perfil</h2>
+		
+		<div class="form__perfil">
+			<form action="/api/v1/admin/editar/usuario" method="POST" autocomplete="off">
+				<label class="form__label" for="nombre">
+					<span>Nombre:</span>
+					<input class="form__input" type="text" placeholder="Escriba tu nombre" name="nombre" value = "{{nombre}}" required >
+				</label>
+				<label class="form__label" for="correo">
+					<span>Correo Electronico:</span>
+					<input class="form__input" type="email" placeholder="Escriba su correo" name="email" value="{{correo}}" required>
+				</label>
+				<label class="form__label" for="departamento">
+					<span>Seleccione Departamento:</span>
+					<select class="form__input" name="departamento">
+						{% for departamento in departamentos%}
+							<option value="{{departamento}}">{{ departamento }}</option>
+						{% endfor %}
+					</select>
+				</label>
+
+				<button class="button--brown" type="submit">Enviar información</button>
+			</form>
+		</div>
+	</main>
+{% endblock %}

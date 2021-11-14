@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="autor" content="Jesus Alan Hernandez Galvan (Unlikeghost)">
+    <meta name="autor" content="Luis Fernández (lfer9980)">
+    <meta name="autor" content="Leonel Valdez (leo1345)">
+    <meta name="description" content="Proyecto de evaluaciones internas con AI para Alfonso Marina">
+    <meta property="og:title" content="Elart: evaluando el arte by Alfonso Marina">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="https://i.postimg.cc/dV37vjLh/logo-1-2x.png">
+    <meta property="og:description" content="Proyecto de evaluaciones internas con AI para Alfonso Marina">
+    <link rel="icon" type="icono elart" href="../static/assets/img/logo-2@2x.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>elart | {{titulo}}</title>
+</head>
+<body>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <script>
+                    swal({
+                        title: "{{category}}",
+                        text: "{{message}}",
+                        icon: '{{category}}',
+
+                    });
+                </script>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+	{% block content %}
+
+	{% endblock %}
+
+
+</body>
+</html>

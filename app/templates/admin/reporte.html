@@ -1,0 +1,63 @@
+{%extends "admin/layout.html "%}
+{% block styles %}
+	<link rel="stylesheet" href="../../static/css/reporte.css">
+{% endblock %}
+{% block content %}
+	<main class="reportes">
+		
+		{% if marcador %}
+			<h2 class="reportes__title">Resultados de busqueda</h2>
+			<section class="reportes__resultados">
+				{% for nombre in miembro %}
+				{% set departamento = departamentos%}
+				{% set estrella = estrellas	[loop.index-1]%}
+					<article class="reporte__resultados__card">
+						<div class="profile-main__foto">
+							<img src="../../static/assets/img/avatar3.png" alt="avatar 3">
+						</div>
+						
+						<div class="profile-main__data">
+							<h3>{{nombre}}</h3>
+							<span>{{departamento}}</span>
+						
+							<div class="profile-main__data__estrellas">
+								<p>
+									<span>{{estrella }}</span>
+									<span>estrellas </span>
+								</p>
+								{%for estrella_i in range(estrella)%}
+									<i class="material-icons">stars</i>
+								{% endfor %}
+							</div>
+						</div>
+					</article>
+				{% endfor %}	
+			</section>
+
+		{% else %}
+
+			<h2 class="reporte__title">Imprimir Reporte:</h2>
+			
+			<div class="reporte__form">
+				<form action="/auth/admin/reportes" method="POST" autocomplete="off">
+					
+					<label class="form__label" for="departamento">
+						<span>Seleccione el departamento:</span>
+						<select class="form__input" name="departamento">
+							{% for departamento in departamentos%}
+								<option value="{{departamento}}">{{departamento}}</option>
+							{% endfor %}
+						</select>
+					</label>
+					<div class="button">
+						<button class="button--brown--form" type="submit">Generar reportes</button>
+					</div>
+				
+				</form>
+			</div>
+
+		{% endif %}
+
+	</main>
+
+{% endblock %}

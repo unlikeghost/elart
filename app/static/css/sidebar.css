@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&family=Merriweather+Sans:wght@400;500;700&display=swap");
+/* fuentes principales */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&family=Merriweather+Sans:wght@400;500;700&display=swap");
+/* fuentes principales */
+
+:root {
+--fuente1: 'Merriweather', sans-serif;
+--fuente2: 'Lato', sans-serif;
+
+--white: #FFF;
+--gray200: #E2E2E2;
+--gray400: #545454;
+--gray600: #141414;
+--black: #0D0D0D;
+
+--graymain: #8A99A6;
+--graysecond: #C1CED9;
+--brownlight: #F2EDDC;
+--brown: #BF895A;
+--browndark: #8C4830;
+
+--red600: #80000B;
+--red500: #AD000F;
+--red400: #E60014;
+--red300: #E64A57;
+--red200: #E6737D;
+
+--green600: #00801F;
+--green500: #00A327;
+--green400: #00BB2D;
+--green300: #3CBB5A;
+--green200: #5EBB74;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+html {
+    font-size: 62.5%;
+    font-family: "Lato", sans-serif;
+    scroll-behavior: smooth;
+    background-color: #8C4830;
+    color: #FFF;
+  }
+  
+body {
+    display: flex;
+}
+  
+body::after {
+    content: "";
+    background: url("../assets/img/fondo_elart.jpg");
+    background-position: center;
+    opacity: 0.75;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+
+.sidebar {
+	position: relative;
+	width: 270px;
+	height: 100vh;
+    background-color: rgba(140, 72, 48, 0.6);
+	text-align: center;
+	padding: 30px;
+	margin-right: 20px;
+	border-right: 1px solid var(--brownlight);
+	box-shadow: 0 4px 8px rgba(13,13, 13, 0.7);
+}
+.sidebar__logo {
+	width: 120px;
+	height: auto;
+	margin: 20px auto;
+}
+.sidebar__username {
+	font-family: var(--fuente2);
+	font-size: 1.8rem;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.sidebar__nav {
+	text-align: left;
+}
+.sidebar__nav__data {
+	list-style: none;
+}
+.sidebar__item {
+    margin-bottom: 15px;
+	font-size: 1.6rem;
+	padding: 5px;
+}
+.sidebar__item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--white);
+}
+.sidebar__item a i {
+    padding-right: 5px;
+}
+.sidebar__item:hover {
+	background-color: var(--brownlight);
+}
+.sidebar__item:hover a {
+    font-weight: bold;
+    color: var(--browndark);
+}
+.button--brown {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    left: 0;
+    width: 150px;
+    height: 30px;
+    padding: 5px;
+    margin: 5px auto;
+    background-color: var(--browndark);
+    border: 0;
+    box-shadow: 0 4px 8px rgba(13,13, 13, 0.7);
+    cursor: pointer;
+}
+.button--brown a {
+    font-size: 1.6rem;
+    font-family: var(--fuente2);
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.button--brown:hover {
+    background-color: var(--brownlight);
+    border: 0;
+    box-shadow: 0 4px 8px rgba(13,13, 13, 0.7);
+}
+.button--brown:hover a {
+    color: var(--browndark)
+}
