@@ -1,3 +1,4 @@
+from flask.helpers import flash
 from . import errors_bp
 from flask import url_for
 from flask import redirect
@@ -7,3 +8,11 @@ from flask import render_template
 def error_401(error):
 
     return redirect(url_for('public.index'))
+
+
+@app.errorhandler(404)
+def resource_not_found(e):
+
+    flash("Tenemos errores en este momento", "error")
+
+    return redirect(url_for('public.index'), code=404)
