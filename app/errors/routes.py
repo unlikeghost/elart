@@ -10,7 +10,7 @@ def error_401(error):
     return redirect(url_for('public.index'))
 
 
-@app.errorhandler(404)
+@errors_bp.errorhandler(404)
 def resource_not_found(e):
 
     flash("Tenemos errores en este momento", "error")
